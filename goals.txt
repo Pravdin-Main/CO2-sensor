@@ -1,0 +1,3 @@
+--- Features ---
+- add loading display
+- 1-click: change display brightness, 2-click: change LED brightness, hold: switch buzzer loud
