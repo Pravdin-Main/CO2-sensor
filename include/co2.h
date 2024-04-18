@@ -9,7 +9,8 @@
 #define K1 6.4995
 #define K2 590.53
 
-#define WARMING 10     // sec
+#define WARMING 180      // Timer of max warming mode duration, sec
+#define PERIOD 1        // Period of ppm checking, sec
 
 #define ANALOG 0
 #define UART 1

@@ -1,6 +1,7 @@
 #include "co2.h"
 
 GTimer_ms warming(WARMING*1000);
+GTimer_ms period(PERIOD*1000);
 
 #if(ANALOG)
 bool CO2::start(uint8_t pin){
@@ -24,10 +25,17 @@ bool CO2::start(uint8_t rx, uint8_t tx){
 
 bool CO2::warm(){
     #if(UART)
+    // if(warming.isReady()){
+    //     return true;
+    // } else {
+    //     return !isWarming();
+    // }
+    if(period.isReady()){
+        if(getPPM() > 500) return true;
+         else return !isWarming();
+    }
     if(warming.isReady()){
         return true;
-    } else {
-        return !isWarming();
     }
     #elif(ANALOG)
         warming.isReady() ? return true : return false;
